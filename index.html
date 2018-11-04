@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Start_metter</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="header">
+	</div>
+	<dialog id="window">  
+		<div id="my_input">
+			<input type="text" placeholder="Событие" id="name_event"/><br>
+			<input type="text" placeholder="День,месяц,год" id="day"/><br>
+			<input type="text" placeholder="Имена участников" id="name_people"/><br>
+			<input type="text" placeholder="Описание" id="more_inf"/><br>
+		</div>
+		<div id= "button_vis">
+			<input type="button" id="btn" value="Готово">
+			<button id="exit">Выйти</button> 
+			<input type="button" id="btn1" value="Редактирование">
+		</div>
+	</dialog>  
+	<!-- <button id="show">Добавить</button> -->
+	<div class="content">
+		<div class="my_table">
+			<table id = "table_table">
+				<tr id="th_name">
+					<th>Понедельник,25</th>
+					<th>Вторник,26</th>
+					<th>Среда,27</th>
+					<th>Четверг,28</th>
+					<th>Пятница,1</th>
+					<th>Суббота,2</th>
+					<th>Воскресенье,3</th>
+				</tr>
+				<tr id="td_event">
+					<td onclick="myFunction(this)">4</td>
+					<td onclick="myFunction(this)">5</td>
+					<td onclick="myFunction(this)">6</td>
+					<td onclick="myFunction(this)">7</td>
+					<td onclick="myFunction(this)">8</td>
+					<td onclick="myFunction(this)">9</td>
+					<td onclick="myFunction(this)">10</td>
+				</tr>
+				<tr id="td_event">
+					<td onclick="myFunction(this)">11</td>
+					<td onclick="myFunction(this)">12</td>
+					<td onclick="myFunction(this)">13</td>
+					<td onclick="myFunction(this)">14</td>
+					<td onclick="myFunction(this)">15</td>
+					<td onclick="myFunction(this)">16</td>
+					<td onclick="myFunction(this)">17</td>
+				</tr>
+				<tr id="td_event">
+					<td onclick="myFunction(this)">18</td>
+					<td onclick="myFunction(this)">19</td>
+					<td onclick="myFunction(this)">20</td>
+					<td onclick="myFunction(this)">21</td>
+					<td onclick="myFunction(this)">22</td>
+					<td onclick="myFunction(this)">23</td>
+					<td onclick="myFunction(this)">24</td>
+				</tr>
+				<tr id="td_event">
+					<td onclick="myFunction(this)">25</td>
+					<td onclick="myFunction(this)">26</td>
+					<td onclick="myFunction(this)">27</td>
+					<td onclick="myFunction(this)">28</td>
+					<td onclick="myFunction(this)">29</td>
+					<td onclick="myFunction(this)">30</td>
+					<td onclick="myFunction(this)">31</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="footer"></div> 
+	<script type="text/javascript">
+		function myFunction(element){
+			document.getElementById("name_event").value = "";
+			document.getElementById("day").value = "";
+			document.getElementById("name_people").value = "";
+			document.getElementById("more_inf").value = "";
+			var number_table = element.innerText[0]
+			var element_table = element
+			var dialog = document.getElementById('window');  
+			document.getElementById('table_table').onclick = function() {  
+				dialog.show();  
+			};  
+			document.getElementById('exit').onclick = function() {  
+				dialog.close();  
+			};
+			function Write_color(){
+				// alert(document.getElementById("txt").value);
+				var name_event = document.getElementById("name_event").value
+				var day = document.getElementById("day").value
+				var name_people = document.getElementById("name_people").value
+				var more_inf = document.getElementById("more_inf").value
+				element_table.innerHTML = number_table+'<br><br>'+ '<span id="name_ev">'  + name_event + '</span>' + '<br>'+ '<span id="dday">' + day +'</span>' + '<br>'+ '<span id="namee_people">' + name_people + '</span>'+ '<br>'+ '<span id="more">' + more_inf + '</span>'
+				element_table.style.backgroundColor = "#d9f6ff";
+			}  
+			document.getElementById("btn").onclick = Write_color;
+
+			function Redaction(){
+				if (document.getElementById("name_ev") == null) {
+					document.getElementById("name_event").value = "";
+				}else{
+					document.getElementById("name_event").value = document.getElementById("name_ev").innerText
+				};
+				if (document.getElementById("dday") == null) {
+					document.getElementById("day").value = "";
+				}else{
+					document.getElementById("day").value = document.getElementById("dday").innerText
+				};
+				if (document.getElementById("namee_people") == null) {
+					document.getElementById("name_people").value = "";
+				}else{
+					document.getElementById("name_people").value = document.getElementById("namee_people").innerText
+				};
+				if (document.getElementById("more") == null) {
+					document.getElementById("more_inf").value = "";
+				}else{
+					document.getElementById("more_inf").value = document.getElementById("more").innerText
+				};
+
+			}
+			document.getElementById("btn1").onclick = Redaction;
+		}; 
+	</script>
+</body>
+</html>
